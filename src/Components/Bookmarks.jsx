@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import Bookmark from "./Bookmark";
+import { useState, useEffect } from 'react';
+import Bookmark from './Bookmark';
 
 const API = import.meta.env.VITE_BASE_URL;
 
@@ -19,19 +19,21 @@ function Bookmarks() {
   }, []);
 
   return (
-    <div className="Bookmarks">
+    <div className='Bookmarks'>
       <section>
         <table>
           <thead>
             <tr>
-              <th></th>
-              <th>Take me there</th>
-              <th>See this bookmark</th>
+              <th> Favorite </th>
+              <th> Take me there </th>
+              <th> Edit this bookmark </th>
             </tr>
           </thead>
           <tbody>
             {bookmarks.map((bookmark) => {
-              return <Bookmark key={bookmark.id} bookmark={bookmark} />;
+              return (
+                <Bookmark key={bookmark.id} bookmark={bookmark} />
+              );
             })}
           </tbody>
         </table>
