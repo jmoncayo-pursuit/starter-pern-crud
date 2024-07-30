@@ -72,7 +72,7 @@ function ReviewForm({ reviewDetails, handleSubmit, toggleView, children }) {
           value={review.rating}
           onChange={handleTextChange}
         />
-        <label htmlFor="content">Review:</label>
+        <label htmlFor="content"> Review: </label>
         <textarea
           id="content"
           type="text"

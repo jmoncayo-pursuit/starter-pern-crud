@@ -63,7 +63,7 @@ function BookmarkNewForm() {
           placeholder="http://"
           onChange={handleTextChange}
         />
-        <label htmlFor="category">Category:</label>
+        <label htmlFor="category"> Category: </label>
         <input
           id="category"
           type="text"

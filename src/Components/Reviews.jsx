@@ -24,26 +24,46 @@ function Reviews() {
       })
       .catch((error) => console.error('catch', error));
   };
-  
-const handleDelete = (id) => {
-  fetch(`${API}/bookmarks/${id}/reviews/${id}`, {
-    method: 'DELETE',
-  })
-    .then(
-      (response) => {
-        const copyReviewArray = [...reviews];
-        const indexDeletedReview = copyReviewArray.findIndex(
+
+  const handleDelete = (id, bookmarkId) => {
+    fetch(`${API}/bookmarks/${bookmarkId}/reviews/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => {
+        const copyReviewsArr = [...reviews];
+        const indexDeletedReview = copyReviewsArr.findIndex(
           (review) => {
             return review.id === id;
           }
         );
-        copyReviewArray.splice(indexDeletedReview, 1);
-        setReviews(copyReviewArray);
+        copyReviewsArr.splice(indexDeletedReview, 1);
+        setReviews(copyReviewsArr);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleEdit = (updatedReview) => {
+    fetch(`${API}/bookmarks/${id}/reviews/${updatedReview.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(updatedReview),
+      headers: {
+        'Content-Type': 'application/json',
       },
-      (error) => console.error(error)
-    )
-    .catch((error) => console.warn('catch', error));
-};
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // Make a copy of the array
+        const copyReviewArr = [...reviews];
+        // Find the index of the review that we just updated
+        const indexUpdatedReview = copyReviewArr.findIndex(
+          (review) => review.id === updatedReview.id
+        );
+        // Using the index we can reassign that review in our array to be the response we got from our HTTP request
+        copyReviewArr[indexUpdatedReview] = res;
+        setReviews(copyReviewArr);
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     fetch(`${API}/bookmarks/${id}/reviews`)
@@ -52,6 +72,7 @@ const handleDelete = (id) => {
         setReviews(response.reviews);
       });
   }, [id, API]);
+
   return (
     <section className='Reviews'>
       <h2> Reviews </h2>
@@ -59,7 +80,12 @@ const handleDelete = (id) => {
         <h3> Add a New Review </h3>
       </ReviewForm>
       {reviews.map((review) => (
-        <Review key={review.id} review={review} />
+        <Review
+          key={review.id}
+          review={review}
+          handleDelete={handleDelete}
+          handleSubmit={handleEdit}
+        />
       ))}
     </section>
   );
