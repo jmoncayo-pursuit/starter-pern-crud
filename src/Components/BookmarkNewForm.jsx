@@ -44,7 +44,7 @@ function BookmarkNewForm() {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name"> Name: </label>
         <input
           id="name"
           value={bookmark.name}
@@ -53,7 +53,7 @@ function BookmarkNewForm() {
           placeholder="Name of Website"
           required
         />
-        <label htmlFor="url">URL:</label>
+        <label htmlFor="url"> URL: </label>
         <input
           id="url"
           type="text"
@@ -72,14 +72,14 @@ function BookmarkNewForm() {
           placeholder="educational, inspirational, ..."
           onChange={handleTextChange}
         />
-        <label htmlFor="is_favorite">Favorite:</label>
+        <label htmlFor="is_favorite"> Favorite: </label>
         <input
           id="is_favorite"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={bookmark.is_favorite}
         />
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="description"> Description: </label>
         <textarea
           id="description"
           name="description"
