@@ -5,12 +5,12 @@ function Bookmark({ bookmark }) {
     <tr>
       <td>
         {bookmark.is_favorite ? (
-          <span>⭐️</span>
+          <span> ⭐️ </span>
         ) : (
-          <span>&nbsp; &nbsp; &nbsp;</span>
+          <span> &nbsp; &nbsp; &nbsp; </span>
         )}
       </td>
-    <td style={{ cursor: "alias" }}>
+      <td style={{ cursor: "alias" }}>
         <a href={bookmark.url} target="_blank" rel="noreferrer">
           {bookmark.name}
         </a>

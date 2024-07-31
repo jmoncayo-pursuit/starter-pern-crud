@@ -19,11 +19,18 @@ main {
   margin: auto;
 }
 
-a {
+a,
+a:visited {
   text-decoration: none;
-  color: #8957ab;
+  color: #7015ad;
 }
-button a {
+
+a:hover {
+  color: #4b007d;
+}
+
+button a,
+button a:visited {
   color: antiquewhite;
 }
 
@@ -82,4 +89,26 @@ input[type="submit"] {
   display: flex;
   justify-content: space-around;
   width: 50%;
+}
+
+.Reviews {
+  background-color: whitesmoke;
+  padding: 1em;
+  box-shadow: 2px 2px 4px silver;
+}
+
+.Reviews > div {
+  padding: 1em;
+  box-shadow: 0px 0px 2px silver;
+  background-color: ghostwhite;
+}
+.Reviews > div:nth-child(odd) {
+  background-color: rgb(244, 216, 251);
+  padding: 1em;
+}
+
+.review-actions {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1em;
 }
