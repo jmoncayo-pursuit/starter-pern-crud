@@ -1,3 +1,4 @@
+// src/Pages/Show.jsx
 import BookmarkDetails from "../Components/BookmarkDetails";
 
 function Show() {

@@ -1,3 +1,4 @@
+// src/Pages/Home.jsx
 function Home() {
   return (
     <div>

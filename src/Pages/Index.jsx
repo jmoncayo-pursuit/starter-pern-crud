@@ -1,3 +1,4 @@
+// src/Pages/Index.jsx
 import Bookmarks from "../Components/Bookmarks";
 
 function Index() {
